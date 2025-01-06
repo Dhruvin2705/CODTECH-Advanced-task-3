@@ -1,0 +1,35 @@
+import argparse
+from port_scanner import scan_ports
+from brute_forcer import brute_force_login
+from service_detector import detect_service_version
+from getpass import getpass
+
+def main():
+    parser = argparse.ArgumentParser(description="Penetration Testing Toolkit")
+    parser.add_argument('--scan-ports', type=str, help="Target IP for port scanning")
+    parser.add_argument('--brute-force', type=str, help="URL for brute force login attack")
+    parser.add_argument('--service-detect', type=str, help="Target IP and port for service version detection")
+    
+    args = parser.parse_args()
+
+    # Port scanner
+    if args.scan_ports:
+        target_ip = args.scan_ports
+        ports = [22, 80, 443, 8080, 21]  # Add more ports as needed
+        scan_ports(target_ip, ports)
+
+    # Brute force
+    if args.brute_force:
+        url = args.brute_force
+        users = ['admin', 'user', 'root']  # Add more usernames
+        passwords = ['12345', 'password', 'admin']  # Add more passwords
+        brute_force_login(url, users, passwords)
+
+    # Service version detection
+    if args.service_detect:
+        target_ip, target_port = args.service_detect.split(':')
+        target_port = int(target_port)
+        detect_service_version(target_ip, target_port)
+
+if __name__ == '__main__':
+    main()
