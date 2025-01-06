@@ -8,6 +8,13 @@
 
 **Intern ID :** CT08DAV
 
+**Key Features:**
+Port Scanner: Scans open ports on a target machine.
+Brute Forcer: Attempts to brute-force login credentials on a website.
+Service Version Detection: Detects the version of services running on open ports.
+Modular Design: Each module is self-contained, making it easier to extend and maintain.
+CLI Interface: Easy-to-use command-line interface for running the different modules
+
 **Security Considerations:**
 Ethical Usage: Ensure that you have explicit permission before using these tools on any network or system.
 Brute Force Attacks: Be aware that brute-forcing login forms could lock accounts or disrupt services. Always use with caution.
